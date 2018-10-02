@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:JerioHou/config-repo.git
+          username: houjie20@gmail.com
+          password: hj815211095
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+# 暴露 监控接口
+management:
+  endpoints:
+    web:
+      expose: "*"
