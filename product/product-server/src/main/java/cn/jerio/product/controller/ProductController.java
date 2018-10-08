@@ -87,4 +87,9 @@ public class ProductController {
     public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList) {
         productService.decreaseStock(decreaseStockInputList);
     }
+
+    @GetMapping("/testClient")
+    public String testClient(){
+        return "test the client";
+    }
 }

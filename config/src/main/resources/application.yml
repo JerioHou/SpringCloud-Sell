@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: config
@@ -6,8 +7,8 @@ spring:
       server:
         git:
           uri: git@github.com:JerioHou/config-repo.git
-          username: houjie20@gmail.com
-          password: hj815211095
+          username: username
+          password: password
 eureka:
   client:
     service-url:
@@ -17,3 +18,5 @@ management:
   endpoints:
     web:
       expose: "*"
+server:
+  port: 8760

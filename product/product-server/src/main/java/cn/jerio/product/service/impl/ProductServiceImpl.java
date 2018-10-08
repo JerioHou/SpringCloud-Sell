@@ -1,14 +1,15 @@
 package cn.jerio.product.service.impl;
 
-import com.imooc.product.common.DecreaseStockInput;
-import com.imooc.product.common.ProductInfoOutput;
-import com.imooc.product.dataobject.ProductInfo;
-import com.imooc.product.enums.ProductStatusEnum;
-import com.imooc.product.enums.ResultEnum;
-import com.imooc.product.exception.ProductException;
-import com.imooc.product.repository.ProductInfoRepository;
-import com.imooc.product.service.ProductService;
-import com.imooc.product.utils.JsonUtil;
+
+import cn.jerio.product.common.DecreaseStockInput;
+import cn.jerio.product.common.ProductInfoOutput;
+import cn.jerio.product.dataobject.ProductInfo;
+import cn.jerio.product.enums.ProductStatusEnum;
+import cn.jerio.product.enums.ResultEnum;
+import cn.jerio.product.exception.ProductException;
+import cn.jerio.product.repository.ProductInfoRepository;
+import cn.jerio.product.service.ProductService;
+import cn.jerio.product.utils.JsonUtil;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

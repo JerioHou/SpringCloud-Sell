@@ -1,8 +1,9 @@
 package cn.jerio.product.service.impl;
 
-import com.imooc.product.dataobject.ProductCategory;
-import com.imooc.product.repository.ProductCategoryRepository;
-import com.imooc.product.service.CategoryService;
+
+import cn.jerio.product.dataobject.ProductCategory;
+import cn.jerio.product.repository.ProductCategoryRepository;
+import cn.jerio.product.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
