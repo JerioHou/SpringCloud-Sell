@@ -89,7 +89,9 @@ public class ProductController {
     }
 
     @GetMapping("/testClient")
-    public String testClient(){
-        return "test the client";
+    public String testClient() {
+        System.out.println(".................");
+        throw new RuntimeException("抛出异常");
+//        return "test the client";
     }
 }

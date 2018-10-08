@@ -12,6 +12,9 @@ import cn.jerio.order.utils.KeyUtil;
 import cn.jerio.product.client.ProductClient;
 import cn.jerio.product.common.DecreaseStockInput;
 import cn.jerio.product.common.ProductInfoOutput;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,7 @@ import java.util.stream.Collectors;
 
 
 @Service
+@Slf4j
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -35,6 +39,9 @@ public class OrderServiceImpl implements OrderService {
     private ProductClient productClient;
 
     @Override
+    @HystrixCommand(commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+    },fallbackMethod = "createFail")
     public OrderDTO create(OrderDTO orderDTO) {
         String orderId = KeyUtil.genUniqueKey();
 
@@ -77,5 +84,10 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
         orderMasterRepository.save(orderMaster);
         return orderDTO;
+    }
+
+    public OrderDTO createFail(OrderDTO orderDTO) {
+        log.debug("hystrix,{}","创建订单失败");
+        return null;
     }
 }

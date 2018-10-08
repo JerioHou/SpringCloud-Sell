@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Jerio on 2018/10/2
  */
-@FeignClient(name = "product")
+@FeignClient(name = "product" ,fallback = ProductClientFallback.class)
 public interface ProductClient {
 
     @PostMapping("/product/listForOrder")
