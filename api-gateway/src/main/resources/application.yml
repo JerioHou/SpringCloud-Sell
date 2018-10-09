@@ -17,6 +17,9 @@ zuul:
     zhe-ge-di-fang-ming-zi-sui-bian:
       path: /myProduct/**
       serviceId: product
+      # 默认情况下，Zuul在请求路由时，会过滤HTTP请求头信息中的一些敏感信息，默认的敏感头信息通过zuul.sensitiveHeaders定义
+      # 加上定义 sensitiveHeaders: ABC,则ABC会被过滤
+      # 使用空来覆盖默认值, 即不过滤
       sensitiveHeaders:
   #简洁写法
 #    product: /myProduct/**

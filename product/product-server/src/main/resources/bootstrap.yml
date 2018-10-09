@@ -13,6 +13,7 @@ spring:
     password: root
     url: jdbc:mysql://127.0.0.1:3306/springcloud_sell?characterEncoding=utf-8&useSSL=false
   zipkin:
+    # zipkin地址 springboot2.x之后，官方提供了jar包可以直接启动zipkin服务，无需也无法再自己创建改服务
     base-url: http://localhost:9411
   sleuth:
     enabled: true

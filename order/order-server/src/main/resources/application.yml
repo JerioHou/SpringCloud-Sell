@@ -12,11 +12,14 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://127.0.0.1:3306/springcloud_sell?characterEncoding=utf-8&useSSL=false
+  # 整合zipkin
   zipkin:
+    # zipkin地址 springboot2.x之后，官方提供了jar包可以直接启动zipkin服务，无需也无法再自己创建该服务
     base-url: http://localhost:9411
   sleuth:
     enabled: true
     sampler:
+      # 比例
       probability: 1.0
 
 eureka:
@@ -25,6 +28,7 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 feign:
   hystrix:
+    # 开启hystrix降级熔断
     enabled: true
 server:
   port: 8082
